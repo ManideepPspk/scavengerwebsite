@@ -34,14 +34,17 @@ const AddBranch = (props) => {
         console.log(inpText,"optesd")
         if(inputType === "contactNumber"){
             if (inpText && inpText.length == 10) {
+                inpText = parseInt(inpText);
                 setInputText('');
                 let tempObj = (objec.values.contactNumber && [...objec.values.contactNumber]) || []
+                console.log(tempObj ,  [...tempObj, inpText] ,inpText , "erearar")
                 objec.setFieldValue('contactNumber', [...tempObj, inpText])
             } else {
                 setErrorMessage('Please enter 10 digit value')
             }
         }else{
             if (inpText && inpText.length == 6) {
+                inpText = parseInt(inpText);
                 setInputText('');
                 let tempObj = (objec.values.pincodeCovered && [...objec.values.pincodeCovered]) || []
                 objec.setFieldValue('pincodeCovered', [...tempObj, inpText])
