@@ -1,6 +1,6 @@
 
-import React, { useState , useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import DashboardPage from "./components/Dashboard/Dashboard";
@@ -9,7 +9,6 @@ import Notification from "./Notification/Notification";
 import Header from "./components/Global/Header/Header";
 import NotificationRecord from "./Notification/NotificationRecord";
 function App(props) {
-let token = "";
 
 const [item ,setitem] = useState("")
 console.log(props ,item, "esets")

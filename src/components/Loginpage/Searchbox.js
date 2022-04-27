@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
     Col,
     Form,
@@ -7,7 +7,6 @@ import {
 } from 'react-bootstrap';
 import { useDispatch } from "react-redux";
 import './styles/LoginStyles.scss';
-import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import BDOButton from '../Global/Button/BDOButton';
@@ -64,7 +63,6 @@ export default function Searchbox() {
             values.isread = false;
             dispatch(getAvailableBranches(values, (respData) => {
                 console.log(respData, "respdata")
-                const { success, error, message, branchdatas } = respData;
             }));
         },
         validate: values => {

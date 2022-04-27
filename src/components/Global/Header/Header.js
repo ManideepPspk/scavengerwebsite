@@ -4,10 +4,9 @@ import { useHistory } from 'react-router-dom';
 import {
   Navbar,
   NavDropdown,
-  Form,
   Image,
   ListGroup,
-  Overlay, Row, Badge, Col,
+  Overlay, Row, Col,
   Popover
 } from "react-bootstrap";
 import notification from "../../../assets/icons/icon-notification-outline.svg";

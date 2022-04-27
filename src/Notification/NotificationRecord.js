@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React , {useEffect} from 'react';
 import './Notification.scss';
 import { useHistory } from 'react-router-dom';
 import backIcon from '../assets/icons/backIcon.png'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updatenotification } from '../actions/BranchActions';
 import {
     Card, Image, Row, Col,
