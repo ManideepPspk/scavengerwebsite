@@ -1,0 +1,17 @@
+@import './scss/_variable.scss';
+.App {
+  text-align: center;
+  font-size: $fs-14;
+  font-family:  'Inter' !important;
+  font-style: normal;
+}
+.mainLayout {
+  width: calc( 100%);
+  overflow-x: auto;
+  padding: .4rem 1rem; 
+  background-color: $primary-white;
+}
+
+.sidebarView {
+ width: 21.1%;
+}

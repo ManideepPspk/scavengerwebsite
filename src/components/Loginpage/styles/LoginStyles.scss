@@ -1,0 +1,33 @@
+@import '../../../scss/main.scss';
+.fullHeight {
+    height: 99vh;
+    width: 100%;
+    margin-left: 0px;
+}
+
+.rightCol {
+    background-color: $primary-blue;
+    text-align: center;
+}
+.leftCol {
+    margin-left: 56px;
+    margin-right: 67px;
+}
+.subTitle {
+    color: $primary-white;
+    font-size: 20px;
+    margin-top: 7.5%;
+    margin-bottom: 5.5%;
+}
+.btnLogin {
+    margin-top: 24px;
+}
+
+.centerDiv {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+

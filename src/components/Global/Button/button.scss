@@ -1,0 +1,33 @@
+@import '../../../scss/main.scss';
+
+.style1{
+    height: 32px;
+    @include button($button-primary-blue,$primary-white,$secondary-blue, $button-hover-blue);
+}
+.style2{
+    height: 32px;
+    @include button($primary-white,$button-primary-blue,$primary-blue,  $secondary-white);
+}
+
+.primary {
+    @include button($button-primary-blue,$primary-white,$secondary-blue, $button-hover-blue);
+}
+
+.secondary {
+    @include button($primary-white,$button-primary-blue,$primary-blue,  $secondary-white);
+}
+
+.danger {
+    @include button($primary-red,$primary-white,$primary-red, $primary-red);
+}
+
+.add {
+    @include button($background-color,$secondary-blue,$background-color,  $background-color);
+    &:focus, &:hover {
+        border: 1px solid #2A8ADF; 
+    }
+
+}
+.p5{
+    padding: 5px;
+}

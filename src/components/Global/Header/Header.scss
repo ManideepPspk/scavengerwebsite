@@ -1,0 +1,126 @@
+@import '../../../scss/_variable.scss';
+
+.menu {
+	color: $primary-green;
+
+	.dropdown-menu {
+		left: unset;
+		right: 8px;
+		min-width: 162px;
+		border-radius: 8px;
+		border: 1.5px solid $grey-color-light-2;
+		box-shadow: 0px 0px 16px #00000014;
+	}
+}
+
+.seeAll {
+	color: $secondary-blue;
+	cursor: pointer;
+}
+
+.popoverMain {
+	min-width: 360px;
+	max-height: 320px;
+
+}
+
+.listgroupItemCls {
+	color: $secondary-blue;
+	font-size: 12px;
+	border: none;
+	padding: 8px 8px;
+	border-bottom: 1px solid $background-color-3;
+
+	&.read {
+		font-weight: bold;
+	}
+}
+
+.listgroupItemNoNotificationCls {
+	font-size: 12px;
+	border: none;
+	padding: 8px 8px;
+	text-align: center;
+}
+
+.listItemCls {
+	padding-top: 5px;
+	color: $grey-color-dark-2;
+	font-size: 12px;
+
+	&.read {
+		font-weight: bold;
+	}
+}
+
+.content {
+	max-height: 277px;
+	overflow-y: auto;
+}
+
+.seer {
+	&:hover {
+		background-color: #EAEAEA;
+		cursor: pointer;
+	}
+}
+
+#navbarScrollingDropdown {
+	margin-top: -2px;
+	padding: 0.5rem;
+}
+
+.d-inline-flex span {
+	padding-right: 0px !important;
+}
+.d-inline-flex{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+.notification-icon {
+	//cursor: pointer;
+	margin-right: 7px;
+}
+
+.nameHeader .dropdown-toggle::after {
+	vertical-align: 2px;
+}
+
+.nameHeader {
+	padding: 0.5rem !important;
+	height: 48px;
+	background: $primary-white 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 16px #00000014;
+	opacity: 1;
+}
+
+
+.menu .listItemNav {
+	padding: 2px;
+	cursor: pointer;
+	color: $button-primary-blue;
+	margin-left: 10px;
+}
+
+.iconCls {
+	height: 24px;
+	width: 24px;
+}
+
+.rotate90 {
+	transform: rotate(90deg);
+}
+
+.logout span {
+	margin-left: 5px;
+}
+
+.dropdown-toggle::after {
+	display: none !important;
+}
+
+.name-header {
+	color: $grey-color-dark-3;
+	font-size: 14px;
+}

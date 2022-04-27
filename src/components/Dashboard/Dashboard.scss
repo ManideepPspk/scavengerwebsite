@@ -1,0 +1,47 @@
+@import '../../scss/main.scss';
+
+.wow1 {
+    height: 88vh;
+}
+
+.clm1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 50vh;
+}
+
+.clrdiv {
+    background: linear-gradient(253.84deg, #F5F5F5 0%, #FAFAFA 100%, #FAFAFA 100%);
+    border-radius: 5px;
+    height: 60vh;
+}
+
+.font1 {
+    font-size: $fs-14;
+}
+
+.tick-element {
+    &.true {
+        @include tickCrossCircle (green, $primary-white, $fs-10);
+    }
+
+    &.false {
+        @include tickCrossCircle (grey, $primary-white, $fs-10);
+    }
+}
+
+.fw-500 {
+    font-weight: $fw-500;
+}
+.spinner{
+    display: flex;
+    justify-content: center;
+}
+h6{
+    font-weight: $fw-700;
+    font-size: $fs-16;
+    line-height: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

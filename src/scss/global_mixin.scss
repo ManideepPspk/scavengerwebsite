@@ -1,0 +1,31 @@
+@import './_variable.scss';
+
+@mixin button($bgColor, $textColor, $borderColor, $btnHoverColor) {
+    font-size: 14px;
+    background-color:  $bgColor;
+    font-weight: bold;
+    color: $textColor;
+    border: 1px solid $borderColor;
+    border-radius: 6px;
+    height: 32px;
+    &:hover {
+        background-color:$btnHoverColor;
+        color: $textColor !important;
+    }
+    &:active {
+        background-color: $btnHoverColor !important;
+        color: $textColor !important;
+        outline: 0px !important;
+    }
+    &:focus {
+        box-shadow: 0px 0px 1px $bgColor; 
+    }
+}
+
+@mixin tickCrossCircle ($bgclr, $fnt-clr,$fs-size) {
+    background-color: $bgclr;
+    border-radius: 50%;
+    color: $fnt-clr;
+    font-size: $fs-size;
+    padding: 2px 4px;
+}
