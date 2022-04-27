@@ -70,9 +70,6 @@ function NewLogin(props) {
 
     const getClassName = (formik, fieldName) => {
         let returnMsg = "input-text";
-        if (fieldName === "dataType" || fieldName === "selectedDataList") {
-            returnMsg = "select";
-        }
         if (formik.errors[(fieldName)]) return returnMsg + " error"
         return returnMsg
     }
@@ -100,12 +97,12 @@ function NewLogin(props) {
                         header={"Sign in Details"}
                         body={
                             <Form>
-                                <Row className="mt-2">
+                                <Row className="mt-1">
                                     <Col >
-                                        <h6 className='float-left'>
+                                        <div className='float-left fontweight500'>
                                             <label htmlFor='email' className=''>Email :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             className={getClassName(formik, 'email')}
                                             value={formik.values.email}
@@ -117,12 +114,12 @@ function NewLogin(props) {
                                         {renderError(formik, 'email')}
                                     </Col>
                                 </Row>
-                                <Row className="mt-4">
+                                <Row className="mt-2">
                                     <Col >
-                                        <h6 className='float-left'>
-                                            <label htmlFor='password' className=''>password :-</label>
+                                        <div className='float-left fontweight500'>
+                                            <label htmlFor='password' className=''>Password :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             className={getClassName(formik, 'password')}
                                             value={formik.values.password}

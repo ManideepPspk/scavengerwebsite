@@ -114,10 +114,10 @@ export default function Searchbox() {
                             <Form>
                                 <Row className="mt-2">
                                     <Col >
-                                        <h6 className='float-left'>
+                                        <div className='float-left fontweight500'>
                                             <label htmlFor='name' className=''>Name :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             className={getClassName(formik, 'name')}
                                             value={formik.values.name}
@@ -131,10 +131,10 @@ export default function Searchbox() {
                                 </Row>
                                 <Row className="mt-2">
                                     <Col >
-                                        <h6 className='float-left'>
+                                        <div className='float-left fontweight500'>
                                             <label htmlFor='email' className=''>Email :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             className={getClassName(formik, 'email')}
                                             value={formik.values.email}
@@ -148,10 +148,10 @@ export default function Searchbox() {
                                 </Row>
                                 <Row className="mt-2">
                                     <Col >
-                                        <h6 className='float-left'>
+                                        <div className='float-left fontweight500'>
                                             <label htmlFor='phonenumber' className=''>Phone Number :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             type="number"
                                             className={getClassName(formik, 'phonenumber')}
@@ -164,12 +164,12 @@ export default function Searchbox() {
                                         {renderError(formik, 'phonenumber')}
                                     </Col>
                                 </Row>
-                                <Row className="mt-4">
+                                <Row className="mt-2">
                                     <Col >
-                                        <h6 className='float-left'>
+                                        <div className='float-left fontweight500'>
                                             <label htmlFor='pincodeCovered' className=''>pincodeCovered :-</label>
 
-                                        </h6>
+                                        </div>
                                         <InputText
                                             type="number"
                                             className={getClassName(formik, 'pincodeCovered')}

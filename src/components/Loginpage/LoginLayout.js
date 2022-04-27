@@ -7,6 +7,7 @@ import {
 import './styles/LoginStyles.scss';
 import NewLogin from '../Loginpage/NewLogin';
 import Searchbox from './Searchbox';
+import AddBranch from './AddBranch';
 const LoginLayout = (props) => {
 
 
@@ -22,6 +23,8 @@ const LoginLayout = (props) => {
                     <span >Log in to Scavengers</span>
                     
                     <NewLogin setitem = {props.setitem} />
+                    <h6>Or</h6>
+                    <AddBranch />
                 </div>
             </div>
                 </Col>

@@ -6,6 +6,13 @@ const getBranch = async paramsData => {
   return http.post("/api/login", paramsData);
 };
 
+const postBranch = async paramsData => {
+  //const axios = await httpClient()
+  console.log(paramsData)
+  return http.post("/api/register", paramsData);
+};
+
+
 const getUniqueBranch = async paramsData => {
   //const axios = await httpClient()
   console.log(paramsData , "etwe")
@@ -21,6 +28,7 @@ const updatenotification = async paramsData => {
 }
 const BranchService = {
   getBranch,
+  postBranch,
   getUniqueBranch,
   getAvailableBranches,
   updatenotification

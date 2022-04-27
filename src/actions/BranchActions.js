@@ -2,7 +2,8 @@ import {
   VIEW_BRANCH_DATA,
   VIEW_UNIQUEBRANCH_DATA,
   VIEW_AVAILABLE_BRANCHES,
-  VIEW_UPDATED_NOTIFICATION
+  VIEW_UPDATED_NOTIFICATION,
+  POST_BRANCH_DATA
 } from "./types";
 
 import BranchService from "../services/BranchService";
@@ -65,6 +66,21 @@ export const updatenotification = ( paramsData ,callBack ) => async (dispatch) =
   } catch (err) {
       dispatch({
           type: VIEW_UPDATED_NOTIFICATION,
+          payload: { errorResponse: err},
+      });
+  }
+};
+export const postBranch = ( paramsData ,callBack ) => async (dispatch) => {
+  try {
+    const res = await BranchService.postBranch(paramsData);
+    callBack(res.data);
+    dispatch({
+      type: POST_BRANCH_DATA,
+      payload: res.data,
+    });
+  } catch (err) {
+      dispatch({
+          type: POST_BRANCH_DATA,
           payload: { errorResponse: err},
       });
   }

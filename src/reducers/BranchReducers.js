@@ -2,7 +2,8 @@ import {
   VIEW_BRANCH_DATA,
   VIEW_UNIQUEBRANCH_DATA,
   VIEW_AVAILABLE_BRANCHES,
-  VIEW_UPDATED_NOTIFICATION
+  VIEW_UPDATED_NOTIFICATION,
+  POST_BRANCH_DATA
 } from "../actions/types";
 
 const initialState = [];
@@ -23,6 +24,8 @@ const branchreducer = (branch, action) => {
       return {...branch,"viewavailablebranches":payload};
       case VIEW_UPDATED_NOTIFICATION:
         return {...branch,"updatednotification": payload};
+      case POST_BRANCH_DATA:
+        return{...branch,"postBranch":payload}
     default:
       return branch;
   }
