@@ -24,6 +24,7 @@ function NewLogin(props) {
         setModalData(true)
     }
     const closeModal = () => {
+        formik.resetForm();
         setModalData(false);
     };
 
@@ -34,7 +35,7 @@ function NewLogin(props) {
             .max(50, 'Must be 50 characters or less')
             .required('Required field')
     }
-    const handleErrorMsg = (success, error, token) => {
+    const handleErrorMsg = (success, error, token , setErrors) => {
         if (success === true) {
             formik.resetForm();
             sessionStorage.setItem('authToken', token)
@@ -42,7 +43,7 @@ function NewLogin(props) {
             history.push('/dashboard')
         }
         if (success === false) {
-            formik.errors.password = error;
+            setErrors(error)
             console.log(formik.errors)
         }
     }
@@ -50,10 +51,10 @@ function NewLogin(props) {
         enableReinitialize: true,
         initialValues,
         validationSchema: Yup.object(validationSchemaActual),
-        onSubmit: (values) => {
+        onSubmit: (values , {setErrors}) => {
             dispatch(retrieveAllBranch(values, (respData) => {
                 const { success, error, token } = respData;
-                handleErrorMsg(success, error, token)
+                handleErrorMsg(success, error, token , setErrors)
             }));
         },
         validate: values => {
@@ -131,7 +132,6 @@ function NewLogin(props) {
                                         {renderError(formik, 'password')}
                                     </Col>
                                 </Row>
-
                             </Form>
                         }
                         footer={

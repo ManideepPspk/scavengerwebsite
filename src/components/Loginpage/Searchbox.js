@@ -18,13 +18,18 @@ export default function Searchbox() {
     let initialValues = {};
     const dispatch = useDispatch();
     const [modalData, setModalData] = useState(false);
+    const [successmsg , setSuccess] = useState('');
     const openModal = () => {
         setModalData(true)
     }
     const closeModal = () => {
+        formik.resetForm();
         setModalData(false);
     };
-
+    let returndata = (mapdata) => {
+        let dat = mapdata.join();
+        return dat
+    }
     let validationSchemaActual = {
         name: Yup.string()
             .required('Required field'),
@@ -35,12 +40,16 @@ export default function Searchbox() {
         pincodeCovered: Yup.number()
             .required('Required field')
     }
-    const handleErrorMsg = (success, error, token) => {
+    const handleErrorMsg = (success, error,branchdatas, setErrors) => {
         if (success === true) {
-            formik.resetForm();
+            let arr = returndata(branchdatas);
+            let dat = "branches have been notified."
+            let result = arr.concat(" ", dat);
+            setSuccess(result);
+            setTimeout(closeModal, 3000)
         }
         if (success === false) {
-            console.log(error, formik.errors, "error")
+            setErrors(error)
         }
     }
 
@@ -50,19 +59,20 @@ export default function Searchbox() {
             return v.toString(16);
         });
     }
-
     var userID = uuid();
+
     const formik = useFormik({
         enableReinitialize: true,
         initialValues,
         validationSchema: Yup.object(validationSchemaActual),
-        onSubmit: (values) => {
+        onSubmit: (values , {setErrors}) => {
             values.notificationId = userID;
             values.date = new Date().toLocaleDateString();
             values.time = new Date().toLocaleTimeString();
             values.isread = false;
             dispatch(getAvailableBranches(values, (respData) => {
-                console.log(respData, "respdata")
+                const { success, error ,branchdatas } = respData;
+                handleErrorMsg(success, error , branchdatas , setErrors)
             }));
         },
         validate: values => {
@@ -81,8 +91,6 @@ export default function Searchbox() {
             return errors;
         }
     });
-
-    console.log(formik, formik.errors, formik.values)
 
     const getClassName = (formik, fieldName) => {
         let returnMsg = "input-text";
@@ -112,6 +120,7 @@ export default function Searchbox() {
                         header={"Search a Pin Code"}
                         body={
                             <Form>
+                                <Row className="ml-2 mb-3">Please give your contact details and search pincode</Row>
                                 <Row className="mt-2">
                                     <Col >
                                         <div className='float-left fontweight500'>
@@ -167,7 +176,7 @@ export default function Searchbox() {
                                 <Row className="mt-2">
                                     <Col >
                                         <div className='float-left fontweight500'>
-                                            <label htmlFor='pincodeCovered' className=''>pincodeCovered :-</label>
+                                            <label htmlFor='pincodeCovered' className=''>pincode :-</label>
 
                                         </div>
                                         <InputText
@@ -177,12 +186,13 @@ export default function Searchbox() {
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                             name='pincodeCovered'
-                                            placeholder='Enter Password'
+                                            placeholder='Enter Pincode'
                                         />
                                         {renderError(formik, 'pincodeCovered')}
                                     </Col>
                                 </Row>
-
+                                
+                                <Row className="mt-4 ml-2" style={{color:"green"}}>{successmsg}</Row>
                             </Form>
                         }
                         footer={

@@ -33,7 +33,7 @@ const AddBranch = (props) => {
     const addDatalist = (inpText, objec, setInputText, setErrorMessage, inputType) => {
         console.log(inpText,"optesd")
         if(inputType === "contactNumber"){
-            if (inpText && inpText.length == 10) {
+            if (inpText && inpText.length === 10) {
                 inpText = parseInt(inpText);
                 setInputText('');
                 let tempObj = (objec.values.contactNumber && [...objec.values.contactNumber]) || []
@@ -43,7 +43,7 @@ const AddBranch = (props) => {
                 setErrorMessage('Please enter 10 digit value')
             }
         }else{
-            if (inpText && inpText.length == 6) {
+            if (inpText && inpText.length === 6) {
                 inpText = parseInt(inpText);
                 setInputText('');
                 let tempObj = (objec.values.pincodeCovered && [...objec.values.pincodeCovered]) || []
@@ -100,12 +100,14 @@ const AddBranch = (props) => {
         branchIncharge: Yup.string().required('Required field'),
         address: Yup.string().required('Required field')
     }
-    const handleErrorMsg = (success, error) => {
+    const handleErrorMsg = (success, error ,setErrors) => {
         if (success === true) {
             formik.resetForm();
             closeModal();
         }
         if (success === false) {
+            console.log(error ,"adf")
+            setErrors(error)
             console.log(formik.errors)
         }
     }
@@ -113,13 +115,12 @@ const AddBranch = (props) => {
         enableReinitialize: true,
         initialValues,
         validationSchema: Yup.object(validationSchemaActual),
-        onSubmit: (values) => {
+        onSubmit: (values , {setErrors}) => {
             values.institutionName = "Beetle Nut";
             values.city = "Pasadena";
             dispatch(postBranch(values, (respData) => {
                 const { success, error } = respData;
-                console.log(respData, "REA")
-                handleErrorMsg(success, error)
+                handleErrorMsg(success, error , setErrors)
             }));
             console.log(values, "values")
         },
@@ -139,7 +140,7 @@ const AddBranch = (props) => {
             return errors;
         }
     });
-    console.log(formik.values)
+    console.log(formik.values , formik.errors)
 
     const getClassName = (formik, fieldName) => {
         let returnMsg = "input-text";
