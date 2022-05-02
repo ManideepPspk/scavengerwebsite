@@ -51,9 +51,8 @@ const Notification = () => {
                 <Table stickyHeader aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>{tableval("Name", "tablehead")}</TableCell>
-                            <TableCell align="left">{tableval("Email", "tablehead")}</TableCell>
-                            <TableCell align="left">{tableval("Pincode", "tablehead")}</TableCell>
+                            <TableCell>{tableval("Notification", "tablehead")}</TableCell>
+                            <TableCell align="left">{tableval("Time", "tablehead")}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -65,10 +64,11 @@ const Notification = () => {
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {tableval(row.name, row.isread === false ?"tablebody name read":"tablebody name")}
+                                    <span className={row.isread === false ?"tablebody name read":"tablebody name"}> {row.name} <span className="colorb"> has searched for the pincode </span> {row.pincodeCovered}</span>
                                 </TableCell>
-                                <TableCell align="left">{tableval(row.email, row.isread === false ?"tablebody read":"tablebody ")}</TableCell>
-                                <TableCell align="left">{tableval(row.pincodeCovered, row.isread === false ?"tablebody read":"tablebody")}</TableCell>
+                                <TableCell align="left">
+                                    <span className={row.isread === false ?"tablebody time read":"tablebody time"}>{row.date} - {row.time}</span>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

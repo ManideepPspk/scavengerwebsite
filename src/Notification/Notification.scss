@@ -32,6 +32,12 @@
         
     color: $secondary-blue;
     }
+    &.time{
+        color: $grey-color-dark-3;
+	font-family: monospace;
+	font-style: italic;
+	font-size: $fs-12;
+    }
 
     &.read {
         font-weight: bold;
@@ -46,9 +52,10 @@
 
 
 .listgroupItemNoNotificationCls {
-    font-size: 12px;
+    font-size: $fs-16;
     border: none;
     padding: 8px 8px;
+    font-weight: $fw-500;
     text-align: center;
 }
 .seer {
