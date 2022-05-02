@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import './Notification.scss';
 import { Image } from 'react-bootstrap';
-import backIcon from '../assets/icons/backIcon.png'
+import backIcon from '../assets/icons/backIcon.svg'
 import { useHistory } from 'react-router-dom';
 
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +43,7 @@ const Notification = () => {
     return (
         <div className='maincl'>
             <div className='mb-4 mt-4'>
-                <Image onClick={goBack} src={backIcon} className="icon" />
+                <Image onClick={goBack} src={backIcon} className="icon mr-3" />
                 <b>Notifications</b>
             </div>
             {(rowdata && rowdata.length > 0) ? (

@@ -2,7 +2,7 @@
 import React , {useEffect} from 'react';
 import './Notification.scss';
 import { useHistory } from 'react-router-dom';
-import backIcon from '../assets/icons/backIcon.png'
+import backIcon from '../assets/icons/backIcon.svg'
 import { useDispatch } from "react-redux";
 import { updatenotification } from '../actions/BranchActions';
 import {
@@ -25,7 +25,7 @@ const NotificationRecord = (props) => {
     return (
         <div className='maincl'>
             <div className='mb-4 mt-4'>
-                <Image onClick={goBack} src={backIcon} className="icon" />
+                <Image onClick={goBack} src={backIcon} className="icon mr-3" />
                 <b>Notification Record</b>
             </div>
             

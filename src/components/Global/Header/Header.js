@@ -122,8 +122,8 @@ function Header(props) {
         >
           <div className="listItemNav">
             <div onClick={() => handleLogout()} className="logout">
-              <Image src={logoutIcon} className="iconCls rotate90" />
-              <span>Log out</span>
+              <Image src={logoutIcon} className="iconClslt" />
+              <span className="ml-2">Log out</span>
             </div>
           </div>
         </NavDropdown>
