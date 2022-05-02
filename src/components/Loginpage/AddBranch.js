@@ -10,11 +10,11 @@ import { useDispatch } from "react-redux";
 import './styles/LoginStyles.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import BDOButton from '../Global/Button/BDOButton';
+import ScavengerButton from '../Global/Button/Button';
 import InputText from '../Global/Input/InputText';
 import { postBranch } from "../../actions/BranchActions";
-import BDOModal from '../Global/BDOModal/BDOModal';
-import BDOSelect from '../Global/Select/BDOSelect';
+import ScavengerModal from '../Global/Modal/Modal';
+import ScavengerSelect from '../Global/Select/Select';
 import PlusIcon from '../../assets/icons/plus_icon.svg'
 import MinusIcon from '../../assets/icons/icon-delete.svg'
 
@@ -201,7 +201,7 @@ const AddBranch = (props) => {
     return (
         <div >
             <div className="btnLogin">
-                <BDOButton
+                <ScavengerButton
                     title="Create Branch Account"
                     variant="secondary"
                     onClick={openModal}
@@ -210,8 +210,8 @@ const AddBranch = (props) => {
 
             {
                 modalData && (
-                    <BDOModal
-                        header={"Sign in Details"}
+                    <ScavengerModal
+                        header={"Create a Branch Account"}
                         body={
                             <Form>
                                 <Row className="mt-2">
@@ -320,7 +320,7 @@ const AddBranch = (props) => {
                                 <Row className="mt-2 mr-2 ml-2">
                                     <Col xs='4' sm='4' ></Col>
                                     <Col xs='8' sm='8'>
-                                        <BDOSelect
+                                        <ScavengerSelect
                                             className={getClassName(formik, "contactNumberArray")}
                                             name="contactNumberArray"
                                             value={formik.values.contactNumberArray}
@@ -350,7 +350,7 @@ const AddBranch = (props) => {
                                 <Row className="mt-2 mr-2 ml-2">
                                     <Col xs='4' sm='4' ></Col>
                                     <Col xs='8' sm='8'>
-                                        <BDOSelect
+                                        <ScavengerSelect
                                             className={getClassName(formik, "pincodeCoveredArray")}
                                             name="pincodeCoveredArray"
                                             value={formik.values.pincodeCoveredArray}
@@ -365,7 +365,7 @@ const AddBranch = (props) => {
                         }
                         footer={
                             <div className="float-right mr-4">
-                                <BDOButton type="submit" title='Create Branch' style1="style1" onClick={formik.handleSubmit} />
+                                <ScavengerButton type="submit" title='Create Branch' style1="style1" onClick={formik.handleSubmit} />
                             </div>
                         }
                         openState={modalData}

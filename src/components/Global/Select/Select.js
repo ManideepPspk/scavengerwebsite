@@ -13,7 +13,7 @@ const DropdownIndicator = (
         </components.DropdownIndicator>
     )
 } 
-const BDOSelect = ( props ) => {
+const ScavengerSelect = ( props ) => {
     const colourStyles = {
         option: (styles, { data, isDisabled, isFocused, isSelected }) => {
             return {
@@ -27,7 +27,7 @@ const BDOSelect = ( props ) => {
     let value = options && options.find(ele => ele.value === props.value); 
 
     return( 
-        <div className='bdoSelect'>
+        <div className='scavengerSelect'>
             <Select
                 {...props}
                 className={
@@ -41,4 +41,4 @@ const BDOSelect = ( props ) => {
     )
 }
 
-export default BDOSelect;
+export default ScavengerSelect;

@@ -10,10 +10,10 @@ import './styles/LoginStyles.scss';
 import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import BDOButton from '../Global/Button/BDOButton';
+import ScavengerButton from '../Global/Button/Button';
 import InputText from '../Global/Input/InputText';
 import { retrieveAllBranch } from "../../actions/BranchActions";
-import BDOModal from '../Global/BDOModal/BDOModal';
+import ScavengerModal from '../Global/Modal/Modal';
 
 function NewLogin(props) {
     let initialValues = {};
@@ -85,7 +85,7 @@ function NewLogin(props) {
     return (
         <div >
                 <div className="btnLogin">
-                    <BDOButton
+                    <ScavengerButton
                         title="Log in"
                         variant="secondary"
                         onClick={openModal}
@@ -94,7 +94,7 @@ function NewLogin(props) {
 
             {
                 modalData && (
-                    <BDOModal
+                    <ScavengerModal
                         header={"Sign in Details"}
                         body={
                             <Form>
@@ -136,7 +136,7 @@ function NewLogin(props) {
                         }
                         footer={
                             <div className="float-right mr-4">
-                                <BDOButton type="submit" title='Login' style1="style1" onClick={formik.handleSubmit} />
+                                <ScavengerButton type="submit" title='Login' style1="style1" onClick={formik.handleSubmit} />
                             </div>
                         }
                         openState={modalData}

@@ -9,10 +9,10 @@ import { useDispatch } from "react-redux";
 import './styles/LoginStyles.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import BDOButton from '../Global/Button/BDOButton';
+import ScavengerButton from '../Global/Button/Button';
 import InputText from '../Global/Input/InputText';
 import { getAvailableBranches } from "../../actions/BranchActions";
-import BDOModal from '../Global/BDOModal/BDOModal';
+import ScavengerModal from '../Global/Modal/Modal';
 
 export default function Searchbox() {
     let initialValues = {};
@@ -107,7 +107,7 @@ export default function Searchbox() {
     return (
         <div >
             <div className="btnLogin">
-                <BDOButton
+                <ScavengerButton
                     title="Search"
                     variant="secondary"
                     onClick={openModal}
@@ -116,7 +116,7 @@ export default function Searchbox() {
 
             {
                 modalData && (
-                    <BDOModal
+                    <ScavengerModal
                         header={"Search a Pin Code"}
                         body={
                             <Form>
@@ -197,7 +197,7 @@ export default function Searchbox() {
                         }
                         footer={
                             <div className="float-right mr-4">
-                                <BDOButton type="submit" title='Search' style1="style1" onClick={formik.handleSubmit} />
+                                <ScavengerButton type="submit" title='Search' style1="style1" onClick={formik.handleSubmit} />
                             </div>
                         }
                         openState={modalData}

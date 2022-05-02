@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal, Image } from 'react-bootstrap';
 import closeIcon from '../../../assets/icons/icon-n-close.svg';
-import "./BDOModal.scss";
+import "./Modal.scss";
 
-function BDOModal(props) {
+function ScavengerModal(props) {
     const { 
         header, body, footer, modalProps,
         openState
@@ -36,4 +36,4 @@ function BDOModal(props) {
     )
 }
 
-export default BDOModal;
+export default ScavengerModal;
