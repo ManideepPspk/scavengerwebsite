@@ -26,7 +26,7 @@
 
 .listgroupItemCls {
 	color: $secondary-blue;
-	font-size: 12px;
+	font-size: $fs-12;
 	border: none;
 	padding: 8px 8px;
 	border-bottom: 1px solid $background-color-3;
@@ -35,9 +35,12 @@
 		font-weight: bold;
 	}
 }
+.colorb{
+	color: $grey-color-dark-2;
+}
 
 .listgroupItemNoNotificationCls {
-	font-size: 12px;
+	font-size: $fs-12;
 	border: none;
 	padding: 8px 8px;
 	text-align: center;
@@ -45,8 +48,10 @@
 
 .listItemCls {
 	padding-top: 5px;
-	color: $grey-color-dark-2;
-	font-size: 12px;
+	color: $grey-color-dark-3;
+	font-family: monospace;
+	font-style: italic;
+	font-size: $fs-10;
 
 	&.read {
 		font-weight: bold;

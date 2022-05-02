@@ -65,10 +65,10 @@ function Header(props) {
           return (
             <>
               <ListGroup.Item onClick={() => gotoNotificationsRecord(ele)} className={ele.isread === false ? "listgroupItemCls seer read" : "listgroupItemCls seer"}>
-                {ele.name}
+                {ele.name} <span className="colorb"> has searched for the pincode </span> {ele.pincodeCovered}
 
                 <div className="listItemCls">
-                  {ele.pincodeCovered}
+                  {ele.date} - {ele.time}
                 </div>
               </ListGroup.Item>
             </>

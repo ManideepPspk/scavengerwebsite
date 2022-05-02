@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Getting started with Scavenger website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Client side
+1. Client side development is done using ReactJs & Redux .
+2. This source code is available in Github (https://github.com/ManideepPspk/scavengerwebsite) .
+3. This code is hosted in Netlify. Hosted online Website (https://scavengerbymani.netlify.app) .
 
-## Available Scripts
+    # Running code locally
+4. If you want to run this code locally you need to clone the code/use zip file then do the following steps. 
+    1. `npm install` to install all the dependencies.
+    2. `npm start` to run the code. The application runs at port 3000.
+    3. [SERVER] baseURL is connected to application in `http-common.js` file inside src. Both local and hosted url of server are there but in zip file you can see hosted url commented as you are running local but in the hosted website it is connected to hosted url.
+    4. Data is being stored in online mongoDb cluster.
 
-In the project directory, you can run:
+# Server side
+1. Server side development is done using Node.js , ExpressJs , MongoDb.
 
-### `npm start`
+    # Clone code from Heroku
+2. This source is available in Heroku. To download the source code you can use shared zip file or following steps.
+    1. Download and install `Heroku cli` (https://devcenter.heroku.com/articles/heroku-cli) in your device and login.
+    2. If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key. `$ heroku login`
+    3. Then you can clone the code from `$ heroku git:clone -a warm-island-56693`
+    4. This is the hosted URL and you can use it in Postman (https://warm-island-56693.herokuapp.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    # Running code locally
+3. If you want to run this code locally you need to clone the code/use zip file then do the following steps.
+    1. `npm install` to install all the dependencies.
+    2. `npm start` to run the code. The application runs at port 4500. 
+    3. Then you need to change the baseURL of server in the `http-common.js` of Client src.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# DataBase
+1. Data is being stored in the mongoDb atlas cluster of my account. As it is a private account you cannot view Database but still you can see its url from the `app.js` of server.
 
-### `npm test`
+# Creating Email id and password.
+1. EmailId of each branch for the data shared by HR is created in the format `Branch Name all in lowercase without any space or special characters if existed`
+2. Password is created from the same emailID without the @ extension.
+    # Eg :- `Penny's apartment` as `pennysapartment@gmail.com` and password as `pennysapartment`.
+3. User can also create his own unique branch from `create branch account button` on the UI.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Searching branch and giving Notifications.
+1. User can search for the branch from the search button of UI. Then the branch manager logs in and views the notification.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
