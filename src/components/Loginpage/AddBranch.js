@@ -31,18 +31,18 @@ const AddBranch = (props) => {
 
 
     const addDatalist = (inpText, objec, setInputText, setErrorMessage, inputType) => {
-        console.log(inpText,"optesd")
-        if(inputType === "contactNumber"){
+        console.log(inpText, "optesd")
+        if (inputType === "contactNumber") {
             if (inpText && inpText.length === 10) {
                 inpText = parseInt(inpText);
                 setInputText('');
                 let tempObj = (objec.values.contactNumber && [...objec.values.contactNumber]) || []
-                console.log(tempObj ,  [...tempObj, inpText] ,inpText , "erearar")
+                console.log(tempObj, [...tempObj, inpText], inpText, "erearar")
                 objec.setFieldValue('contactNumber', [...tempObj, inpText])
             } else {
                 setErrorMessage('Please enter 10 digit value')
             }
-        }else{
+        } else {
             if (inpText && inpText.length === 6) {
                 inpText = parseInt(inpText);
                 setInputText('');
@@ -55,7 +55,7 @@ const AddBranch = (props) => {
     }
 
 
-    const FindInputType = ({ className, dataObj , inputType}) => {
+    const FindInputType = ({ className, dataObj, inputType }) => {
 
         const [ipText, setInputText] = useState();
         const [errorMsg, setErrorMessage] = useState();
@@ -63,7 +63,7 @@ const AddBranch = (props) => {
         let inputEle = '';
         inputEle = (
             <>
-                < div>
+                <div className="flex">
                     <InputText
                         name='dataText'
                         type="number"
@@ -77,7 +77,7 @@ const AddBranch = (props) => {
                         value={ipText}
                     />
                     <Image className="plusIcon" src={PlusIcon} onClick={
-                        () => addDatalist(ipText, dataObj, setInputText, setErrorMessage , inputType)
+                        () => addDatalist(ipText, dataObj, setInputText, setErrorMessage, inputType)
                     } />
                 </div>
                 <span className='mb-1 error-text'>
@@ -100,13 +100,13 @@ const AddBranch = (props) => {
         branchIncharge: Yup.string().required('Required field'),
         address: Yup.string().required('Required field')
     }
-    const handleErrorMsg = (success, error ,setErrors) => {
+    const handleErrorMsg = (success, error, setErrors) => {
         if (success === true) {
             formik.resetForm();
             closeModal();
         }
         if (success === false) {
-            console.log(error ,"adf")
+            console.log(error, "adf")
             setErrors(error)
             console.log(formik.errors)
         }
@@ -115,12 +115,12 @@ const AddBranch = (props) => {
         enableReinitialize: true,
         initialValues,
         validationSchema: Yup.object(validationSchemaActual),
-        onSubmit: (values , {setErrors}) => {
+        onSubmit: (values, { setErrors }) => {
             values.institutionName = "Beetle Nut";
             values.city = "Pasadena";
             dispatch(postBranch(values, (respData) => {
                 const { success, error } = respData;
-                handleErrorMsg(success, error , setErrors)
+                handleErrorMsg(success, error, setErrors)
             }));
             console.log(values, "values")
         },
@@ -131,16 +131,16 @@ const AddBranch = (props) => {
             ) {
                 errors.email = 'Invalid email format';
             }
-            if ( (values?.contactNumber === undefined || values?.contactNumber?.length === 0)) {
+            if ((values?.contactNumber === undefined || values?.contactNumber?.length === 0)) {
                 errors.contactNumberArray = 'Datalist should not be empty';
             }
-            if ( (values?.pincodeCovered === undefined || values?.pincodeCovered?.length === 0)) {
+            if ((values?.pincodeCovered === undefined || values?.pincodeCovered?.length === 0)) {
                 errors.pincodeCoveredArray = 'Datalist should not be empty';
             }
             return errors;
         }
     });
-    console.log(formik.values , formik.errors)
+    console.log(formik.values, formik.errors)
 
     const getClassName = (formik, fieldName) => {
         let returnMsg = "input-text";
@@ -197,12 +197,12 @@ const AddBranch = (props) => {
         )))
     }
     constructPincode()
-    console.log(formik.values?.branchName ,"fa")
+    console.log(formik.values?.branchName, "fa")
     return (
         <div >
             <div className="btnLogin">
                 <BDOButton
-                    title="Create Branch"
+                    title="Create Branch Account"
                     variant="secondary"
                     onClick={openModal}
                 />
@@ -301,25 +301,25 @@ const AddBranch = (props) => {
                                         {renderError(formik, 'address')}
                                     </Col>
                                 </Row>
-
-
-                                <Row className="mt-2">
-
-                                    <Col >
+                                <Row className="mt-4">
+                                    <Col xs='4' sm='4' >
                                         <div className='float-left fontweight500'>
                                             <label htmlFor="contactNumber" className=''>contact Number :-</label>
                                         </div>
+                                    </Col>
+                                    <Col xs='8' sm='8'>
                                         <>
                                             <FindInputType
                                                 dataObj={{ setFieldValue: formik.setFieldValue, values: formik.values }}
                                                 className={getClassName(formik, "contactNumber")}
-                                                inputType = "contactNumber"
+                                                inputType="contactNumber"
                                             />
                                         </>
                                     </Col>
                                 </Row>
                                 <Row className="mt-2 mr-2 ml-2">
-                                    <Col>
+                                    <Col xs='4' sm='4' ></Col>
+                                    <Col xs='8' sm='8'>
                                         <BDOSelect
                                             className={getClassName(formik, "contactNumberArray")}
                                             name="contactNumberArray"
@@ -331,24 +331,25 @@ const AddBranch = (props) => {
                                         {renderError(formik, 'contactNumberArray')}
                                     </Col>
                                 </Row>
-
-                                <Row className="mt-2">
-
-                                    <Col >
+                                <Row className="mt-4">
+                                    <Col xs='4' sm='4' >
                                         <div className='float-left fontweight500'>
                                             <label htmlFor="pincodeCovered" className=''>Pincode :-</label>
                                         </div>
+                                    </Col>
+                                    <Col xs='8' sm='8'>
                                         <>
                                             <FindInputType
                                                 dataObj={{ setFieldValue: formik.setFieldValue, values: formik.values }}
                                                 className={getClassName(formik, "pincodeCovered")}
-                                                inputType = "pincodeCovered"
+                                                inputType="pincodeCovered"
                                             />
                                         </>
                                     </Col>
                                 </Row>
                                 <Row className="mt-2 mr-2 ml-2">
-                                    <Col>
+                                    <Col xs='4' sm='4' ></Col>
+                                    <Col xs='8' sm='8'>
                                         <BDOSelect
                                             className={getClassName(formik, "pincodeCoveredArray")}
                                             name="pincodeCoveredArray"

@@ -43,6 +43,7 @@ function Dashboard(props) {
                                     <Row><Col sm={2} className="fw-500" >Branch Name</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.branchName}</Col></Row>
                                     <Row><Col sm={2} className="fw-500" >City</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.city}</Col></Row>
                                     <Row><Col sm={2} className="fw-500" >Address</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.address}</Col></Row>
+                                    <Row><Col sm={2} className="fw-500" >Account Type</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.accountType}</Col></Row>
                                     <Row><Col sm={2} className="fw-500" >Branch Incharge</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.branchIncharge}</Col></Row>
                                     <Row><Col sm={2} className="fw-500" >Email</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.email} &nbsp; {tickfun(true)}</Col></Row>
                                     <Row><Col sm={2} className="fw-500" >Contact Number</Col>:- &nbsp; &nbsp;<Col sm={8} >{datatoshow.contactNumber.map((ele) => {
